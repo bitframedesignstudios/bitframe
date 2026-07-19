@@ -136,7 +136,7 @@ export default function Home() {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
           {/* Work item 1 */}
           <div className="group cursor-pointer">
-            <div className="aspect-[4/3] w-full bg-zinc-900 relative overflow-hidden mb-6 flex items-center justify-center p-12">
+            <div className="aspect-4/3 w-full bg-zinc-900 relative overflow-hidden mb-6 flex items-center justify-center p-12">
               {/* Simulated Abstract UI Viewport */}
               <div className="w-full h-full border border-zinc-700/50 bg-zinc-950/60 rounded p-4 flex flex-col justify-between transform group-hover:scale-[1.02] transition-transform duration-500">
                 <div className="flex items-center justify-between border-b border-zinc-800 pb-3">
@@ -164,7 +164,7 @@ export default function Home() {
 
           {/* Work item 2 */}
           <div className="group cursor-pointer">
-            <div className="aspect-[4/3] w-full bg-zinc-100 relative overflow-hidden mb-6 flex items-center justify-center p-12">
+            <div className="aspect-4/3 w-full bg-zinc-100 relative overflow-hidden mb-6 flex items-center justify-center p-12">
               {/* Simulated Abstract Mobile UI Viewport */}
               <div className="w-48 h-full border-4 border-zinc-300 bg-white rounded-2xl p-4 flex flex-col justify-between shadow-md transform group-hover:scale-[1.04] transition-transform duration-500">
                 <div className="w-12 h-3 bg-zinc-200 rounded-full mx-auto mb-4" />
@@ -193,12 +193,12 @@ export default function Home() {
         <div className="absolute top-0 right-0 w-96 h-96 bg-blue-900/10 rounded-full blur-[120px] pointer-events-none" />
         
         <div className="max-w-4xl mx-auto px-6 text-center">
-          <span className="text-xs font-bold tracking-widest text-blue-500 uppercase block mb-4">Let's Build</span>
+          <span className="text-xs font-bold tracking-widest text-blue-500 uppercase block mb-4">Let&apos;s Build</span>
           <h2 className="text-4xl md:text-6xl font-bold tracking-tight mb-8">
             Ready to bring your business to market?
           </h2>
           <p className="text-zinc-400 text-lg md:text-xl font-light max-w-xl mx-auto mb-12 leading-relaxed">
-            Drop us a message with your core ideas, and we'll reply with an actionable design proposal within 24 hours.
+            Drop us a message with your core ideas, and we&apos;ll reply with an actionable design proposal within 24 hours.
           </p>
           <a 
             href="mailto:hello@bitframe.studio" 
