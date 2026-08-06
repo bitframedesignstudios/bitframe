@@ -13,8 +13,11 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Bitframe Studio",
+  title: "Bitframe Design Studio",
   description: "Premium digital design studio for ambitious startups.",
+  icons: {
+    icon: "/icon.svg",
+  },
 };
 
 export default function RootLayout({
