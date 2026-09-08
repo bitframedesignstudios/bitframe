@@ -2,27 +2,15 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { ArrowUpRight } from 'lucide-react';
 
+import { works } from '../lib/works';
+
 type WorkItem = {
+  slug: string;
   title: string;
   description: string;
-  variant: 'dark' | 'light' | 'image';
+  variant?: 'dark' | 'light' | 'image';
   imageSrc?: string;
 };
-
-const workItems: WorkItem[] = [
-  {
-    title: 'PJ Salon',
-    description: 'Beauty brand website hero and booking experience',
-    variant: 'image',
-    imageSrc: '/assets/pj-salon.png',
-  },
-  {
-    title: 'PJ Cosmetics',
-    description: 'Beauty commerce landing page and product story',
-    variant: 'image',
-    imageSrc: '/assets/pj-cosmetics-v2.png',
-  },
-];
 
 function ProjectVisual({ item }: { item: WorkItem }) {
   return (
@@ -83,15 +71,22 @@ export function WorkSection() {
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
-        {workItems.map((item, index) => (
-          <div key={item.title} className="group cursor-pointer animate-fade-up" style={{ animationDelay: `${index * 140 + 120}ms` }}>
-            <ProjectVisual item={item} />
-            <div className="flex justify-between items-start">
+        {works.map((item, index) => (
+          <div key={item.slug} className="group animate-fade-up" style={{ animationDelay: `${index * 140 + 120}ms` }}>
+            <ProjectVisual item={item as WorkItem} />
+            <div className="flex justify-between items-start gap-4">
               <div>
                 <h3 className="text-xl font-bold group-hover:text-blue-600 transition-colors">{item.title}</h3>
                 <p className="text-sm text-zinc-500 mt-1 font-light">{item.description}</p>
               </div>
-              <ArrowUpRight className="w-5 h-5 text-zinc-400 group-hover:text-zinc-900 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all" />
+              <Link
+                href={`/works/${item.slug}`}
+                className="inline-flex shrink-0 items-center gap-1 rounded-full border border-zinc-200 bg-white px-3 py-1.5 text-xs font-medium text-zinc-700 transition-all hover:border-zinc-300 hover:text-zinc-900"
+                aria-label={`View case study for ${item.title}`}
+              >
+                View case study
+                <ArrowUpRight className="w-3.5 h-3.5" />
+              </Link>
             </div>
           </div>
         ))}
