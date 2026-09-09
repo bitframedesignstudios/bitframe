@@ -6,9 +6,10 @@ import { Menu, X } from 'lucide-react';
 import { useMemo, useState } from 'react';
 
 const navLinks = [
+  { href: '/', label: 'Home' },
   { href: '#services', label: 'Services' },
-  { href: '/works', label: 'Our Work' },
   { href: '#process', label: 'Process' },
+  { href: '/works', label: 'Our Work' },
 ];
 
 const mobileLinks = [

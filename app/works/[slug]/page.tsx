@@ -1,11 +1,12 @@
-import Image from 'next/image';
 import Link from 'next/link';
+import { PjCosmeticsCaseStudy } from '../../components/case-studies/PjCosmeticsCaseStudy';
+import { PjSalonCaseStudy } from '../../components/case-studies/PjSalonCaseStudy';
 import { getWorkBySlug, works } from '../../lib/works';
 
-type Params = { params: { slug: string } };
+type Params = { params: Promise<{ slug: string }> };
 
 export default async function WorkDetailPage({ params }: Params) {
-  const resolved = await params as any;
+  const resolved = await params;
   const slug = Array.isArray(resolved.slug) ? resolved.slug[0] : resolved.slug;
   const work = getWorkBySlug(slug);
 
@@ -23,24 +24,13 @@ export default async function WorkDetailPage({ params }: Params) {
     );
   }
 
-  return (
-    <main className="min-h-screen bg-white text-zinc-900">
-      <div className="max-w-5xl mx-auto px-6 py-24">
-        <Link href="/works" className="text-sm text-zinc-500">← Back to works</Link>
-        <h1 className="mt-6 text-4xl font-bold">{work.title}</h1>
-        <p className="mt-4 text-lg text-zinc-600">{work.description}</p>
+  if (slug === 'pj-salon') {
+    return <PjSalonCaseStudy />;
+  }
 
-        {work.imageSrc ? (
-          <div className="mt-8 rounded-lg overflow-hidden shadow-lg">
-            <Image src={work.imageSrc} alt={work.title} width={1200} height={800} style={{ objectFit: work.imageFit ?? 'cover' }} />
-          </div>
-        ) : null}
+  if (slug === 'pj-cosmetics') {
+    return <PjCosmeticsCaseStudy />;
+  }
 
-        <section className="mt-12 prose prose-zinc">
-          <h2>Overview</h2>
-          <p>This case study page is a placeholder — replace with real project details, challenges, outcomes, and visuals.</p>
-        </section>
-      </div>
-    </main>
-  );
+  return <Link href="/works">Back to works</Link>;
 }

@@ -24,46 +24,42 @@ const filters: FilterOption[] = [
 
 function WorkCard({ item }: { item: WorkItem }) {
   return (
-    <article className="group rounded-[2rem] border border-zinc-200/80 bg-white shadow-[0_24px_60px_-24px_rgba(9,9,11,0.18)] overflow-hidden transition-all duration-500 hover:-translate-y-1 hover:shadow-[0_30px_90px_-28px_rgba(9,9,11,0.28)]">
-      <div className={`relative aspect-[4/3] overflow-hidden bg-gradient-to-br ${item.accent ?? 'from-zinc-950 via-zinc-900 to-zinc-800'}`}>
+    <Link
+      href={`/works/${item.slug}`}
+      className="group block overflow-hidden rounded-lg border border-zinc-200 transition-all duration-200 hover:-translate-y-0.5 hover:border-zinc-400"
+    >
+      <div className="relative aspect-[4/3] overflow-hidden bg-zinc-100">
         {item.imageSrc ? (
-          <div className="absolute inset-0 p-4 sm:p-5">
-            <div className="relative h-full w-full overflow-hidden rounded-[1.5rem] border border-white/20 bg-white/90 shadow-2xl shadow-black/10 backdrop-blur-sm">
-              <Image
-                src={item.imageSrc}
-                alt={item.title}
-                fill
-                style={{ objectFit: item.imageFit ?? 'cover', objectPosition: item.imagePosition ? 'right center' : 'center' }}
-                className="transition-transform duration-700 group-hover:scale-[1.02]"
-                sizes="(max-width: 768px) 100vw, 50vw"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-zinc-950/10 via-transparent to-transparent" />
-            </div>
-          </div>
+          <Image
+            src={item.imageSrc}
+            alt={item.title}
+            fill
+            style={{
+              objectFit: item.imageFit ?? 'cover',
+              objectPosition: item.imagePosition ? 'right center' : 'center',
+            }}
+            className="transition-transform duration-500 group-hover:scale-[1.03]"
+            sizes="(max-width: 768px) 100vw, 50vw"
+          />
         ) : null}
       </div>
 
-      <div className="p-6 sm:p-7">
-        <div className="mb-4 flex items-center justify-between gap-4 text-[11px] font-semibold uppercase tracking-[0.22em] text-zinc-400">
-          <span>{item.year}</span>
-          <span>{(item.categories || []).join(' · ')}</span>
+      <div className="p-6">
+        <div className="flex items-center gap-2">
+          <h3 className="text-lg font-semibold tracking-tight text-zinc-950 underline decoration-transparent underline-offset-4 transition-colors group-hover:decoration-zinc-950">
+            {item.title}
+          </h3>
+          <ArrowUpRight className="h-4 w-4 shrink-0 -translate-x-1 -translate-y-1 text-zinc-400 opacity-0 transition-all duration-300 group-hover:translate-x-0 group-hover:translate-y-0 group-hover:opacity-100" />
         </div>
-        <div className="flex items-start justify-between gap-6">
-          <div>
-            <h3 className="text-2xl font-bold tracking-tight text-zinc-950 transition-colors group-hover:text-blue-600">{item.title}</h3>
-            <p className="mt-3 text-sm leading-6 text-zinc-500">{item.description}</p>
-          </div>
-          <Link
-            href={`/works/${item.slug}`}
-            className="mt-1 inline-flex shrink-0 items-center gap-1 rounded-full border border-zinc-200 bg-white px-3 py-1.5 text-[11px] font-medium uppercase tracking-[0.18em] text-zinc-700 transition-all hover:border-zinc-300 hover:text-zinc-950"
-            aria-label={`View case study for ${item.title}`}
-          >
-            View case study
-            <ArrowUpRight className="h-3.5 w-3.5" />
-          </Link>
+        <p className="mt-2 text-sm leading-6 text-zinc-500">{item.description}</p>
+        <div className="mt-4 flex flex-wrap gap-x-3 text-xs text-zinc-400">
+          <span>{item.year}</span>
+          {(item.categories || []).map((c) => (
+            <span key={c}>{c}</span>
+          ))}
         </div>
       </div>
-    </article>
+    </Link>
   );
 }
 
@@ -78,10 +74,10 @@ export default function WorksPage() {
   return (
     <main className="min-h-screen bg-[radial-gradient(circle_at_top,rgba(59,130,246,0.08),transparent_28%),linear-gradient(to_bottom,#fafafa,#ffffff_32%,#f8fafc)] text-zinc-900">
       <section className="mx-auto max-w-7xl px-6 pb-16 pt-28 sm:pt-32">
-        <Link href="/" className="inline-flex items-center gap-2 text-sm font-medium text-zinc-500 transition-colors hover:text-zinc-900">
+        {/* <Link href="/" className="inline-flex items-center gap-2 text-sm font-medium text-zinc-500 transition-colors hover:text-zinc-900">
           <ArrowLeft className="h-4 w-4" />
           Back home
-        </Link>
+        </Link> */}
 
         <div className="mt-10 max-w-3xl animate-fade-up">
           <span className="mb-4 inline-flex items-center gap-2 rounded-full border border-zinc-200 bg-white px-4 py-2 text-xs font-semibold uppercase tracking-[0.25em] text-zinc-500 shadow-sm">
