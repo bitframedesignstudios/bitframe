@@ -13,6 +13,18 @@ export type WorkItem = {
 
 export const works: WorkItem[] = [
   {
+    slug: 'oa-autos',
+    title: 'OA Autos Rental',
+    description: 'Commerce landing page designed to showcase auto rental services and booking.',
+    variant: 'image',
+    categories: ['website', 'branding', 'ux.ui'],
+    year: '2026',
+    accent: 'from-rose-950 via-zinc-900 to-zinc-800',
+    imageSrc: '/assets/oa-hero.png',
+    imageFit: 'contain',
+    imagePosition: 'object-right',
+  },
+  {
     slug: 'pj-salon',
     title: 'PJ Salon',
     description: 'Beauty brand site focused on bookings, service discovery, and premium presentation.',
@@ -35,6 +47,7 @@ export const works: WorkItem[] = [
     imageFit: 'contain',
     imagePosition: 'object-right',
   },
+  
 ];
 
 export function getWorkBySlug(slug: string) {

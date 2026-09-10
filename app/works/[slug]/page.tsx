@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import { PjCosmeticsCaseStudy } from '../../components/case-studies/PjCosmeticsCaseStudy';
 import { PjSalonCaseStudy } from '../../components/case-studies/PjSalonCaseStudy';
+import { OaAutosCaseStudy } from '../../components/case-studies/OAAutos';
 import { getWorkBySlug, works } from '../../lib/works';
 
 type Params = { params: Promise<{ slug: string }> };
@@ -31,6 +32,8 @@ export default async function WorkDetailPage({ params }: Params) {
   if (slug === 'pj-cosmetics') {
     return <PjCosmeticsCaseStudy />;
   }
-
+  if (slug === 'oa-autos') {
+    return <OaAutosCaseStudy />;
+  }
   return <Link href="/works">Back to works</Link>;
 }

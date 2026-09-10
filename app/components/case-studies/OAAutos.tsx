@@ -5,35 +5,33 @@ const sections = [
   {
     label: '01 — Starting point',
     heading: 'No website at all',
-    body: `PJ Cosmetics had no site to start from — sales were happening through Instagram DMs and marketplace listings, with no way for customers to browse the full catalog, see products side by side, or check out directly. Every sale meant a manual back-and-forth instead of a straightforward purchase.`,
+    body: `OA Autos had no site to start from  - SEO performance was poor.`,
   },
   {
-    label: '02 — Product storytelling',
+    label: '02 — Branding and presentation',
     heading: 'Products that read as premium',
-    body: `Each product needed its own page that did more than list specs — real photography, ingredient and usage detail, and copy that matched the brand's tone. The goal was a browsing experience that felt like a considered beauty brand, not a marketplace listing.`,
+    body: `Establishing a strong brand identity was crucial for OA Autos. We focused on creating a visual language that communicated the quality and reliability of the vehicles, using high-quality images and a consistent color scheme.`,
   },
   {
-    label: '03 — Built to convert',
-    heading: 'A checkout that doesn\u2019t lose people',
-    body: `The whole flow — product page, cart, checkout — was designed around removing friction: clear pricing, fast-loading pages, and a streamlined cart with relevant upsells at the right moment, so browsing turns into a completed order instead of an abandoned tab.`,
+    label: '03 — Streamlined Fleet Discovery',
+    heading: 'Organized and easy to navigate',
+    body: `The whole flow - vehicle listing was to combine both Turo and Tripcity Fleet listing into one seamless experience. We designed a user-friendly interface that allowed customers to easily browse and filter vehicles based on their preferences, making the discovery process efficient and enjoyable.`,
   },
   {
-    label: '04 — Shopify foundation',
-    heading: 'A platform that scales with the brand',
-    body: `We built the storefront on Shopify so PJ Cosmetics could manage inventory, payments, and fulfillment without needing a developer for every change, while still getting a fully custom look rather than an off-the-shelf theme.`,
+    label: '04 — Optimized for search engines',
+    heading: 'A platform that improves visibility',
+    body: `We built this with SEO in mind, ensuring that the site structure, meta tags, and content were optimized for search engines. This helps OA Autos attract more organic traffic and reach potential customers effectively.`,
   },
 ];
 
-export function PjCosmeticsCaseStudy() {
+export function OaAutosCaseStudy() {
   return (
     <main className="min-h-screen bg-white text-zinc-900">
       <div className="mx-auto max-w-4xl px-6 py-24">
-       
 
-        <h1 className="mt-8 text-4xl font-bold tracking-tight sm:text-5xl">PJ Cosmetics</h1>
+        <h1 className="mt-8 text-4xl font-bold tracking-tight sm:text-5xl">OA Autos</h1>
         <p className="mt-4 max-w-xl text-lg leading-7 text-zinc-600">
-          A commerce site built from the ground up on Shopify, designed around product
-          storytelling and turning browsers into buyers.
+          A local auto rental service website built from the ground up, designed around vehicle discovery and booking.
         </p>
 
         <div className="mt-10 flex flex-wrap gap-x-10 gap-y-4 border-y border-zinc-200 py-5 text-sm">
@@ -47,7 +45,7 @@ export function PjCosmeticsCaseStudy() {
           </div>
           <div>
             <div className="text-blue-700/70">Stack</div>
-            <div className="mt-1 text-zinc-900">Shopify, Liquid, Tailwind</div>
+            <div className="mt-1 text-zinc-900">Next.js, TypeScript, Tailwind CSS</div>
           </div>
           {/* <div>
             <div className="text-blue-700/70">Live site</div>
@@ -60,7 +58,7 @@ export function PjCosmeticsCaseStudy() {
         <figure className="mt-14">
           <div className="overflow-hidden rounded-md border border-zinc-200">
             <Image
-              src="/assets/pj-cosmetics-v2.png"
+              src="/assets/oa-hero.png"
               alt="PJ Cosmetics homepage"
               width={1200}
               height={800}
@@ -89,6 +87,18 @@ export function PjCosmeticsCaseStudy() {
             social media, with a steady stream of direct orders and a foundation to add
             new product lines without rebuilding the site.
           </p>
+        </section>
+
+        {/* want to add a video section here with scroll of the video */}
+        <section className="mt-20 border-t border-zinc-200 pt-10">
+          <div className="text-sm font-medium text-blue-700/80">Video</div>
+          <div className="mt-3 max-w-xl text-[15px] leading-7 text-zinc-600">
+            <video
+              src="/assets/oa-vid.mp4"
+              controls
+              className="w-full rounded-md border border-zinc-200"
+            />
+          </div>
         </section>
       </div>
     </main>
