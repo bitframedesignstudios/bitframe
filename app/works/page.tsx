@@ -3,7 +3,13 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import { useState } from 'react';
-import { ArrowLeft, ArrowUpRight, LayoutGrid, Palette, Smartphone, Sparkles, type LucideIcon } from 'lucide-react';
+import { ArrowUpRight } from 'lucide-react';
+import {
+  GridIcon,
+  Component1Icon,
+  MobileIcon,
+  MagicWandIcon,
+} from '@radix-ui/react-icons';
 import { works, type WorkItem } from '../lib/works';
 
 type Category = 'website' | 'branding' | 'mobile' | 'ux.ui';
@@ -11,15 +17,15 @@ type Category = 'website' | 'branding' | 'mobile' | 'ux.ui';
 type FilterOption = {
   label: string;
   value: 'all' | Category;
-  icon: LucideIcon;
+  icon: React.ComponentType<{ className?: string }>;
 };
 
 const filters: FilterOption[] = [
-  { label: 'All', value: 'all', icon: LayoutGrid },
-  { label: 'Website', value: 'website', icon: LayoutGrid },
-  { label: 'Branding', value: 'branding', icon: Palette },
-  { label: 'Mobile', value: 'mobile', icon: Smartphone },
-  { label: 'UX/UI', value: 'ux.ui', icon: Sparkles },
+  { label: 'All', value: 'all', icon: GridIcon },
+  { label: 'Website', value: 'website', icon: GridIcon },
+  { label: 'Branding', value: 'branding', icon: Component1Icon },
+  { label: 'Mobile', value: 'mobile', icon: MobileIcon },
+  { label: 'UX/UI', value: 'ux.ui', icon: MagicWandIcon },
 ];
 
 function WorkCard({ item }: { item: WorkItem }) {
